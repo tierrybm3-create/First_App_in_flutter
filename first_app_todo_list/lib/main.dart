@@ -16,6 +16,7 @@ class myApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      home: myhome(),
     );
   }
 }
@@ -24,7 +25,7 @@ class myApp extends StatelessWidget {
 class myhome extends StatefulWidget {
   var items = <item>[];
 
-myhome({super.key}) {
+  myhome() {
     items = [];
     items.add(item(title: 'Item 1', done: false));
     items.add(item(title: 'Item 2', done: true));
@@ -35,22 +36,19 @@ myhome({super.key}) {
   State<myhome> createState() => _myhomeState();
 }
 
-
+// ignore: camel_case_types
 class _myhomeState extends State<myhome> {
-  Null get listView => null;
-
-
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Anotações'),
       ),
-      body: listView.builder(
+      body: ListView.builder(
         itemCount: widget.items.length,
         itemBuilder: (BuildContext ctxt, int index) {
           final item = widget.items[index];
+
           return ListTile(
             title: Text(item.title ?? ''),
             trailing: Checkbox(
