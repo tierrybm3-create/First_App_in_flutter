@@ -35,7 +35,7 @@ myhome({super.key}) {
   State<myhome> createState() => _myhomeState();
 }
 
-// ignore: camel_case_types
+
 class _myhomeState extends State<myhome> {
   Null get listView => null;
 
